@@ -3,48 +3,48 @@
     "ticker": "BND",
     "last": 74.98,
     "rsi": null,
-    "ts": 1761320795
+    "ts": 1761321145
   },
   {
     "ticker": "BNDX",
     "last": 49.795,
     "rsi": null,
-    "ts": 1761320795
+    "ts": 1761321145
   },
   {
     "ticker": "GEMI",
-    "last": 20.2299,
+    "last": 20.21,
     "rsi": null,
-    "ts": 1761320795
+    "ts": 1761321145
   },
   {
     "ticker": "SCHD",
-    "last": 27.1401,
+    "last": 27.15,
     "rsi": null,
-    "ts": 1761320795
+    "ts": 1761321145
   },
   {
     "ticker": "VNQ",
-    "last": 92.68,
+    "last": 92.83,
     "rsi": null,
-    "ts": 1761320795
+    "ts": 1761321145
   },
   {
     "ticker": "VTI",
-    "last": 334.165,
+    "last": 334.35,
     "rsi": null,
-    "ts": 1761320795
+    "ts": 1761321145
   },
   {
     "ticker": "VXUS",
-    "last": 74.99,
+    "last": 74.98,
     "rsi": null,
-    "ts": 1761320795
+    "ts": 1761321145
   },
   {
     "ticker": "XLV",
-    "last": 146.53,
+    "last": 146.67,
     "rsi": null,
-    "ts": 1761320795
+    "ts": 1761321145
   }
 ]
