@@ -6,7 +6,11 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # <-- required to push
+  contents: write
+
+concurrency:
+  group: quotes-update
+  cancel-in-progress: true
 
 jobs:
   run:
@@ -14,6 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0          # get full history so rebase works
           persist-credentials: true
       - uses: actions/setup-python@v5
         with:
@@ -22,10 +27,16 @@ jobs:
       - env:
           FINNHUB_KEY: ${{ secrets.FINNHUB_KEY }}
         run: python update_quotes.py
-      - name: Commit quotes.json
+
+      # Pull latest, keep our generated file if there's a conflict
+      - name: Pull with rebase
         run: |
           git config user.name "quotes-bot"
           git config user.email "actions@github.com"
+          git pull --rebase origin main || true
+
+      - name: Commit quotes.json
+        run: |
           git add quotes.json
           git commit -m "update quotes" || exit 0
-          git push
+          git push origin HEAD:main
