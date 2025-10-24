@@ -1,0 +1,26 @@
+name: Update macro.json
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # every 15 minutes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests
+      - run: python update_macro.py
+      - name: Commit macro.json
+        run: |
+          git config user.name "macro-bot"
+          git config user.email "actions@github.com"
+          git add macro.json
+          git commit -m "update macro" || exit 0
+          git push
