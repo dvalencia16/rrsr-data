@@ -53,3 +53,6 @@ def build_quotes():
 
 if __name__=="__main__":
     build_quotes()
+# add these to the existing list
+EXTRA = ["FNMA","FMCC"]
+TICKERS = sorted(set(load_holdings() + EXTRA))
